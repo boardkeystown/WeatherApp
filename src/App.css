@@ -1,0 +1,9 @@
+/* #main-content {
+  flex-direction: column;
+  flex-wrap: wrap;
+} */
+
+.col {
+  border: 2px solid red;
+  flex: none !important;
+}
