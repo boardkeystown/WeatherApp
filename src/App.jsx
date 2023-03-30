@@ -10,6 +10,7 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 
 import Basic from './components/Basic'
+import Header from './components/Header';
 
 //const API_KEY = process.env.REACT_APP_API_KEY
 
@@ -23,10 +24,10 @@ function App() {
     const [searchTerm,setSearchTerm] = useState("Boston")
 
     useEffect(() => {
-      const API_KEY = 'fda9934c5db06f040978dbd1d0810295';
+      const API_KEY = '';
       const API_Page = `https://api.openweathermap.org`
       const API_URL = `${API_Page}/data/2.5/weather?q=${searchTerm}&appid=${API_KEY}`;
-    
+
       const fetchData = async () => {
         try {
           const response = await fetch(API_URL);
@@ -34,8 +35,8 @@ function App() {
             throw new Error('Network response was not ok');
           }
           const data = await response.json();
+          console.log(data);
           setWeatherData(data);
-          console.log(data)
         } catch (error) {
           console.error('Error fetching weather data:', error);
         }
@@ -50,34 +51,63 @@ function App() {
     console.log(weatherData)
 
 
+  const ddddd = {
+    coord: {
+      lon: -71.0598,
+      lat: 42.3584
+    },
+    weather: [
+      {
+        id: 803,
+        main: "Clouds",
+        description: "broken clouds",
+        icon: "04n"
+      }
+    ],
+    base: "stations",
+    main: {
+      temp: 278.46,
+      feels_like: 274.37,
+      temp_min: 276.85,
+      temp_max: 279.73,
+      pressure: 1015,
+      humidity: 66
+    },
+    visibility: 10000,
+    wind: {
+      speed: 6.17,
+      deg: 200
+    },
+    clouds: {
+      all: 75
+    },
+    dt: 1680142761,
+    sys: {
+      type: 2,
+      id: 2013408,
+      country: "US",
+      sunrise: 1680085935,
+      sunset: 1680131138
+    },
+    timezone: -14400,
+    id: 4930956,
+    name: "Boston",
+    cod: 200
+  }
+
+  
   return (
     <div className="App">
-      <Container>
-        <Container>
-          <Row className='flex-wrap'>
-            <Col>
-              <Card >
-                <Basic props={weatherData}></Basic>
-              </Card>
-            </Col>
-            <Col>
-              <Card >
-                <p>HI miii wife!</p>
-              </Card>
-            </Col>
-            <Col>
-              <Card >
-                <p>HI miii wife!</p>
-              </Card>
-            </Col>
-            <Col>
-              <Card>
-                <p>HI miii wife!</p>
-              </Card>
-            </Col>
-          </Row>
-        </Container>
-      </Container>
+    <Container>
+      <Header></Header>
+      <Row id="current-weather-selections" className='flex-wrap'>
+        <Col>
+          <Card >
+            <Basic props={ddddd}></Basic>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
     </div>
   )
 }
