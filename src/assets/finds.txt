@@ -5,6 +5,15 @@ https://cooltext.com/
 
 http://bulk.openweathermap.org/sample/
 
+Can use for auto complete?
+https://codepen.io/moroshko/pen/LGNJMy
+https://codepen.io/moroshko/pen/LGNJMy
+https://react-autosuggest.js.org/
+
+#this one is better!!!
+https://www.npmjs.com/package/react-bootstrap-typeahead
 
 
 
+#where to find the icons info
+https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2
