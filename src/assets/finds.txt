@@ -1,3 +1,10 @@
-
-
+#for the logo
 https://cooltext.com/
+
+#list of all city names for the api
+
+http://bulk.openweathermap.org/sample/
+
+
+
+
