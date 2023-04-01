@@ -34,10 +34,10 @@ function App() {
   const [currentCards, setCards] = useState([])
 
   useEffect(() => {
-    const API_KEY = '053f2827f1fdb65f16e9161df49ac87b';
+    const API_KEY = '';
     const API_Page = `https://api.openweathermap.org`
     const API_URL = `${API_Page}/data/2.5/weather?q=${searchTerm}&appid=${API_KEY}`;
-    
+
     console.log("SEARCHING:" + searchTerm)
     if (searchTerm) {
       fetch(API_URL)
@@ -49,7 +49,7 @@ function App() {
           return response.json();
         })
         .then(data => {
-          
+
           console.log(data);
           setWeatherData(data);
           console.log("data queried");
@@ -73,12 +73,12 @@ function App() {
     //const synth = window.speechSynthesis;
     //const utterance1 = new SpeechSynthesisUtterance(
     //  "isspay outyay assmyay"
-   // );
+    // );
     //synth.speak(utterance1);
 
 
     const newArray = [...currentCards]
-    newArray.splice(index,1);
+    newArray.splice(index, 1);
     console.log(newArray);
     setCards(newArray);
   }
@@ -110,25 +110,29 @@ function App() {
 
 
   const [jsonData, setJsonData] = useState([]);
-    useEffect(() => {
-      fetch('src/assets/city_names.just.names.min.json')
-        .then(response => response.json())
-        .then(data => {
-            console.log(data)
-            setJsonData(data)
-          }
-        )
-        .catch(error => console.error(error));
-    }, []);
+  useEffect(() => {
+    fetch('src/assets/city_names.just.names.min.json')
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+        setJsonData(data)
+      }
+      )
+      .catch(error => console.error(error));
+  }, []);
 
 
 
 
   return (
     <div className="App">
-      <Container>
-        <Header></Header>
-        <div>
+      <Container className="w-100">
+        <Col>
+          <Header></Header>
+
+        </Col>
+
+        <Col className=''>
           <input type="text" value={inputText} onChange={handleInputChange} ref={inputRef} />
           <Typeahead
             onChange={(selected) => {
@@ -136,22 +140,24 @@ function App() {
               // id maybe from the options should also show states.
               //the python book is included to show you how I did it
               // Handle selections...
-              console.log("SELECTED:" + selected )
+              console.log("SELECTED:" + selected)
               setSearchTerm(encodeURIComponent(selected));
             }}
             options={jsonData}
           />
           <Button onClick={handleSubmit}>bootan foram city qwerty, yes</Button>
-        </div>
-        <Row id="current-weather-selections" className='flex-wrap'>
-          {
-            currentCards.map((e, i) => (
-              <div key={i}>
-                <WeatherCard wd={e} idx={i} func={RemoveCard} />
-              </div>
-            ))
-          }
+        </Col>
+
+        <Row className='justify-content-center'>
+            {
+              currentCards.map((e, i) => (
+                <Col className=" align-items-stretch" key={i} xs={12} md={6} lg={4} xl={4}>
+                  <WeatherCard wd={e} idx={i} func={RemoveCard} />
+                </Col>
+              ))
+            }
         </Row>
+
       </Container>
     </div>
   )

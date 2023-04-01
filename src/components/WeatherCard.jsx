@@ -4,7 +4,7 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import "./card.css";
+import "./WeatherCard.css";
 
 export default function WeatherCard({wd, idx, func}) {
 
@@ -29,7 +29,7 @@ export default function WeatherCard({wd, idx, func}) {
   return (
     <Card className="cardStyle">
       <Card.Body>
-        <Card.Title>{"City: "+wd.name}</Card.Title>
+        <Card.Title className='card-heading'>{"City: "+wd.name}</Card.Title>
         <Card.Img src={wdIconURL}
           style={{ width: '100px', height: '100px' }}
         ></Card.Img>

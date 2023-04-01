@@ -4,6 +4,5 @@
 } */
 
 .col {
-  border: 2px solid red;
-  flex: none !important;
+  /* flex: none !important; */
 }
