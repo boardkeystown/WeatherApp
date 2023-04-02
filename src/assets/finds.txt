@@ -13,7 +13,10 @@ https://react-autosuggest.js.org/
 #this one is better!!!
 https://www.npmjs.com/package/react-bootstrap-typeahead
 
-
-
 #where to find the icons info
 https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2
+
+
+#where to find the api keys
+https://home.openweathermap.org/api_keys
+
